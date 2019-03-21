@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -t pratyushameka/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run pratyushameka/docker-react npm run test -- --coverage:
+  
